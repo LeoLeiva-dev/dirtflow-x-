@@ -1,14 +1,10 @@
 <template>
     <div class="relative flex items-center justify-center py-8">
-
         <!-- Línea -->
         <div class="relative h-px w-full max-w-5xl overflow-hidden bg-zinc-800">
-
             <!-- Luz en movimiento -->
             <div class="section-divider-light"></div>
-
         </div>
-
     </div>
 </template>
 

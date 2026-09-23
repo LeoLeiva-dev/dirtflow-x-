@@ -206,7 +206,7 @@
     top: 75%;
     left: -50%;
     transform: rotate(-8deg);
-    opacity: 0.40;
+    opacity: 0.4;
     animation: dirtflow-beam-three 27s ease-in-out infinite;
 }
 
