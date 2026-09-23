@@ -9,6 +9,7 @@ interface Product {
         nombre: string
     }
 }
+import { Link } from '@inertiajs/vue3'
 
 defineProps<{
     products: Product[]
@@ -87,7 +88,7 @@ defineProps<{
                             </span>
 
                             <a
-                                href="#"
+                                href="/bikes/trek-slash"
                                 class="border border-zinc-700 px-5 py-2 text-sm font-semibold transition hover:border-emerald-500 hover:text-emerald-500"
                             >
                                 Ver detalles
