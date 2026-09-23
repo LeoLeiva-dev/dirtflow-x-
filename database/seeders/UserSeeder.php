@@ -29,7 +29,6 @@ class UserSeeder extends Seeder
 
         $adminUser->roles()->attach($adminRole->id);
 
-
         $cliente = Persona::create([
             'nombre' => 'Jimena',
             'ap1' => 'Rodríguez',

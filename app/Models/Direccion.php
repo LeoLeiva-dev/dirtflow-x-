@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Direccion extends Model
 {
-    protected $table = 'direcciones';   
+    protected $table = 'direcciones';
+
     protected $fillable = [
         'persona_id',
         'tipo',

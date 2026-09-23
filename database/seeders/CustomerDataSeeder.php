@@ -2,10 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Direccion;
-use App\Models\Email;
 use App\Models\Persona;
-use App\Models\Telefono;
 use Illuminate\Database\Seeder;
 
 class CustomerDataSeeder extends Seeder

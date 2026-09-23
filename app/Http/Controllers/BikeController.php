@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
-use Illuminate\Http\Request; 
-use App\Models\Category;
 
 class BikeController extends Controller
 {
@@ -38,15 +38,15 @@ class BikeController extends Controller
         ]);
     }
 
-public function show(string $slug): Response
-{
-    $product = Product::with(['category', 'inventory'])
-        ->where('slug', $slug)
-        ->where('activo', true)
-        ->firstOrFail();
+    public function show(string $slug): Response
+    {
+        $product = Product::with(['category', 'inventory'])
+            ->where('slug', $slug)
+            ->where('activo', true)
+            ->firstOrFail();
 
-    return Inertia::render('public/Bikes/Show', [
-        'product' => $product,
-    ]);
-}
+        return Inertia::render('public/Bikes/Show', [
+            'product' => $product,
+        ]);
+    }
 }
