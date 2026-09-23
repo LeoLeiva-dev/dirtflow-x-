@@ -279,11 +279,11 @@
 
 <script setup lang="ts">
 import { Head, router } from '@inertiajs/vue3'
-import Navbar from '@/components/home/Navbar.vue'
-import Footer from '@/components/home/Footer.vue'
-import FeaturedBikes from '@/components/bikes/FeaturedBikes.vue'
-import SectionDivider from '@/components/SectionDivider.vue'
 import AmbientBackground from '@/components/AmbientBackground.vue'
+import FeaturedBikes from '@/components/bikes/FeaturedBikes.vue'
+import Footer from '@/components/home/Footer.vue'
+import Navbar from '@/components/home/Navbar.vue'
+import SectionDivider from '@/components/SectionDivider.vue'
 interface Product {
     id: number
     nombre: string

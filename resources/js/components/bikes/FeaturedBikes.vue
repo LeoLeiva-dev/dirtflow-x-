@@ -9,7 +9,7 @@ interface Product {
         nombre: string
     }
 }
-import { Link } from '@inertiajs/vue3'
+
 
 defineProps<{
     products: Product[]
