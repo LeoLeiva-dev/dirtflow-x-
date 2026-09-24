@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Head, router } from '@inertiajs/vue3';
+import { computed, ref, watch } from 'vue';
 
 interface Product {
     id: number;
@@ -20,15 +21,56 @@ interface Product {
     };
 }
 
-defineProps<{
+const props = defineProps<{
     product: Product;
 }>();
+
+const quantity = ref(1);
+
+const maxStock = computed(() => props.product.inventory.cantidad);
+
+watch(maxStock, (stock) => {
+    if (stock === 0) {
+        quantity.value = 0;
+    } else if (quantity.value === 0) {
+        quantity.value = 1;
+    } else if (quantity.value > stock) {
+        quantity.value = stock;
+    }
+}, { immediate: true });
+
+const increaseQuantity = () => {
+    if (quantity.value < maxStock.value) {
+        quantity.value++;
+    }
+};
+
+const decreaseQuantity = () => {
+    if (quantity.value > 1) {
+        quantity.value--;
+    }
+};
+
+const addToCart = () => {
+    router.post(`/cart/${props.product.id}`, {
+        cantidad: quantity.value,
+    });
+};
+
+const scrollToAcquire = () => {
+    document
+        .getElementById('acquire-machine')
+        ?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+        });
+};
 </script>
 
 <template>
     <Head :title="product.nombre" />
 
-    <div class="min-h-screen bg-zinc-950 text-white">
+    <div class="min-h-screen bg-zinc-950 text-white ">
         <!-- Hero -->
         <section class="relative min-h-screen overflow-hidden">
             <!-- Background glow -->
@@ -96,9 +138,11 @@ defineProps<{
 
                         <div class="mt-10 flex gap-4">
                             <button
+                                type="button"
+                                @click="scrollToAcquire"
                                 class="border border-zinc-700 px-8 py-4 text-sm font-bold tracking-wider uppercase transition hover:border-emerald-500 hover:text-emerald-500"
                             >
-                                Añadir al carrito
+                                Configura tu Maquina
                             </button>
                         </div>
                     </div>
@@ -350,7 +394,7 @@ defineProps<{
             </div>
         </section>
         <!-- Acquire Machine -->
-        <section class="relative border-t border-zinc-900 bg-black py-28">
+        <section class="relative border-t border-zinc-900 bg-black py-28" id="acquire-machine">
             <div class="mx-auto max-w-7xl px-6">
                 <!-- Header -->
                 <div class="mb-16">
@@ -378,7 +422,7 @@ defineProps<{
                         <p
                             class="font-mono text-xs tracking-[0.25em] text-zinc-600 uppercase"
                         >
-                            Selected machine
+                            Selecciona tu maquina
                         </p>
 
                         <h3
@@ -432,14 +476,17 @@ defineProps<{
                             <p
                                 class="font-mono text-xs tracking-[0.25em] text-zinc-600 uppercase"
                             >
-                                Quantity
+                                Cantidad
                             </p>
 
                             <div
                                 class="mt-4 flex w-fit items-center border border-zinc-800"
                             >
                                 <button
-                                    class="flex h-12 w-12 items-center justify-center text-xl text-zinc-500 transition hover:bg-zinc-900 hover:text-white"
+                                    type="button"
+                                    :disabled="quantity <= 1"
+                                    @click="decreaseQuantity"
+                                    class="flex h-12 w-12 items-center justify-center text-xl text-zinc-500 transition hover:bg-zinc-900 hover:text-white disabled:cursor-not-allowed disabled:opacity-30"
                                 >
                                     −
                                 </button>
@@ -447,11 +494,14 @@ defineProps<{
                                 <span
                                     class="flex h-12 w-14 items-center justify-center border-x border-zinc-800 font-mono"
                                 >
-                                    1
+                                    {{ quantity }}
                                 </span>
 
                                 <button
-                                    class="flex h-12 w-12 items-center justify-center text-xl text-zinc-500 transition hover:bg-zinc-900 hover:text-white"
+                                    type="button"
+                                    :disabled="quantity >= maxStock"
+                                    @click="increaseQuantity"
+                                    class="flex h-12 w-12 items-center justify-center text-xl text-zinc-500 transition hover:bg-zinc-900 hover:text-white disabled:cursor-not-allowed disabled:opacity-30"
                                 >
                                     +
                                 </button>
@@ -460,10 +510,12 @@ defineProps<{
 
                         <!-- Action -->
                         <button
-                            class="mt-10 flex w-full items-center justify-between border border-emerald-500 bg-emerald-500 px-6 py-5 text-sm font-black tracking-[0.2em] text-black uppercase transition hover:bg-transparent hover:text-emerald-500"
+                            type="button"
+                            :disabled="maxStock === 0"
+                            @click="addToCart"
+                            class="mt-10 flex w-full items-center justify-between border border-emerald-500 bg-emerald-500 px-6 py-5 text-sm font-black tracking-[0.2em] text-black uppercase transition hover:bg-transparent hover:text-emerald-500 disabled:cursor-not-allowed disabled:border-zinc-800 disabled:bg-zinc-800 disabled:text-zinc-600 disabled:hover:bg-zinc-800 disabled:hover:text-zinc-600"
                         >
-                            <span>Add to cart</span>
-
+                            <span>{{ maxStock === 0 ? 'Fuera de Stock' : 'Añadir al Carrito' }}</span>
                             <span>→</span>
                         </button>
                     </div>
