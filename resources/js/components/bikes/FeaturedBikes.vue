@@ -2,6 +2,7 @@
 interface Product {
     id: number;
     nombre: string;
+    slug: string;
     descripcion: string | null;
     precio: string;
     imagen: string | null;
@@ -89,7 +90,7 @@ defineProps<{
                             </span>
 
                             <a
-                                href="/bikes/trek-slash"
+                                :href="`/bikes/${products[0].slug}`"
                                 class="border border-zinc-700 px-5 py-2 text-sm font-semibold transition hover:border-emerald-500 hover:text-emerald-500"
                             >
                                 Ver detalles
@@ -148,7 +149,7 @@ defineProps<{
                                 </span>
 
                                 <a
-                                    href="#"
+                                    :href="`/bikes/${product.slug}`"
                                     class="text-sm font-semibold text-zinc-400 transition hover:text-emerald-500"
                                 >
                                     Ver →
