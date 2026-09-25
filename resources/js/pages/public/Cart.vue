@@ -51,9 +51,7 @@ defineProps<{
                     Cart / 00
                 </p>
 
-                <h2 class="mt-4 text-2xl font-bold">
-                    Tu carrito está vacío
-                </h2>
+                <h2 class="mt-4 text-2xl font-bold">Tu carrito está vacío</h2>
 
                 <p class="mx-auto mt-3 max-w-md text-zinc-500">
                     Todavía no has seleccionado ninguna máquina.
@@ -107,9 +105,7 @@ defineProps<{
                                 </h2>
                             </div>
 
-                            <div
-                                class="flex items-end justify-between gap-4"
-                            >
+                            <div class="flex items-end justify-between gap-4">
                                 <div>
                                     <p class="text-xs text-zinc-600">
                                         Cantidad
@@ -129,9 +125,7 @@ defineProps<{
                 </div>
 
                 <!-- Summary -->
-                <aside
-                    class="h-fit border border-zinc-800 bg-zinc-900/60 p-6"
-                >
+                <aside class="h-fit border border-zinc-800 bg-zinc-900/60 p-6">
                     <p
                         class="text-xs font-semibold tracking-[0.25em] text-zinc-500 uppercase"
                     >
@@ -148,9 +142,7 @@ defineProps<{
                         </span>
                     </div>
 
-                    <div
-                        class="mt-4 flex items-center justify-between text-lg"
-                    >
+                    <div class="mt-4 flex items-center justify-between text-lg">
                         <span>Total</span>
 
                         <span class="font-black text-emerald-500">

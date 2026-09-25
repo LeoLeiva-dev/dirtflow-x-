@@ -29,15 +29,19 @@ const quantity = ref(1);
 
 const maxStock = computed(() => props.product.inventory.cantidad);
 
-watch(maxStock, (stock) => {
-    if (stock === 0) {
-        quantity.value = 0;
-    } else if (quantity.value === 0) {
-        quantity.value = 1;
-    } else if (quantity.value > stock) {
-        quantity.value = stock;
-    }
-}, { immediate: true });
+watch(
+    maxStock,
+    (stock) => {
+        if (stock === 0) {
+            quantity.value = 0;
+        } else if (quantity.value === 0) {
+            quantity.value = 1;
+        } else if (quantity.value > stock) {
+            quantity.value = stock;
+        }
+    },
+    { immediate: true },
+);
 
 const increaseQuantity = () => {
     if (quantity.value < maxStock.value) {
@@ -58,19 +62,17 @@ const addToCart = () => {
 };
 
 const scrollToAcquire = () => {
-    document
-        .getElementById('acquire-machine')
-        ?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-        });
+    document.getElementById('acquire-machine')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+    });
 };
 </script>
 
 <template>
     <Head :title="product.nombre" />
 
-    <div class="min-h-screen bg-zinc-950 text-white ">
+    <div class="min-h-screen bg-zinc-950 text-white">
         <!-- Hero -->
         <section class="relative min-h-screen overflow-hidden">
             <!-- Background glow -->
@@ -394,7 +396,10 @@ const scrollToAcquire = () => {
             </div>
         </section>
         <!-- Acquire Machine -->
-        <section class="relative border-t border-zinc-900 bg-black py-28" id="acquire-machine">
+        <section
+            class="relative border-t border-zinc-900 bg-black py-28"
+            id="acquire-machine"
+        >
             <div class="mx-auto max-w-7xl px-6">
                 <!-- Header -->
                 <div class="mb-16">
@@ -515,7 +520,11 @@ const scrollToAcquire = () => {
                             @click="addToCart"
                             class="mt-10 flex w-full items-center justify-between border border-emerald-500 bg-emerald-500 px-6 py-5 text-sm font-black tracking-[0.2em] text-black uppercase transition hover:bg-transparent hover:text-emerald-500 disabled:cursor-not-allowed disabled:border-zinc-800 disabled:bg-zinc-800 disabled:text-zinc-600 disabled:hover:bg-zinc-800 disabled:hover:text-zinc-600"
                         >
-                            <span>{{ maxStock === 0 ? 'Fuera de Stock' : 'Añadir al Carrito' }}</span>
+                            <span>{{
+                                maxStock === 0
+                                    ? 'Fuera de Stock'
+                                    : 'Añadir al Carrito'
+                            }}</span>
                             <span>→</span>
                         </button>
                     </div>
