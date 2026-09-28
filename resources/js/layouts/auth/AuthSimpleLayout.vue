@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import DirtFlowLogo from '@/components/DirtFlowLogo.vue';
 import AmbientBackground from '@/components/AmbientBackground.vue';
+import DirtFlowLogo from '@/components/DirtFlowLogo.vue';
 
 defineProps<{
     title?: string;
@@ -9,9 +9,7 @@ defineProps<{
 </script>
 
 <template>
-    <div
-        class="relative flex min-h-svh overflow-hidden bg-zinc-950 text-white"
-    >
+    <div class="relative flex min-h-svh overflow-hidden bg-zinc-950 text-white">
         <AmbientBackground />
 
         <div
@@ -19,7 +17,9 @@ defineProps<{
         ></div>
 
         <div class="relative z-10 flex min-h-svh w-full flex-col">
-            <header class="flex items-center justify-between px-6 py-6 md:px-10">
+            <header
+                class="flex items-center justify-between px-6 py-6 md:px-10"
+            >
                 <DirtFlowLogo />
 
                 <a
