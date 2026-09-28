@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Head, router } from '@inertiajs/vue3';
 import { computed, ref, watch } from 'vue';
+import Footer from '@/components/home/Footer.vue';
+import Navbar from '@/components/home/Navbar.vue';
 
 interface Product {
     id: number;
@@ -71,6 +73,7 @@ const scrollToAcquire = () => {
 
 <template>
     <Head :title="product.nombre" />
+    <navbar />
 
     <div class="min-h-screen bg-zinc-950 text-white">
         <!-- Hero -->
@@ -644,4 +647,5 @@ const scrollToAcquire = () => {
             </div>
         </section>
     </div>
+    <Footer />
 </template>
