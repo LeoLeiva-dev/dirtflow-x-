@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { router } from '@inertiajs/vue3';
 import { ShoppingBag, User } from 'lucide-vue-next';
-
-
 </script>
 
 <template>
