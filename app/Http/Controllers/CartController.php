@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\CartItem;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -58,11 +59,12 @@ class CartController extends Controller
             ]);
         }
 
-        $item = $cart->items()
+        /** @var CartItem|null $item */
+        $item = CartItem::where('cart_id', $cart->id)
             ->where('product_id', $product->id)
             ->first();
 
-        $currentQuantity = $item?->cantidad ?? 0;
+        $currentQuantity = $item ? $item->cantidad : 0;
         $newQuantity = $currentQuantity + $validated['cantidad'];
 
         if ($newQuantity > $product->inventory->cantidad) {

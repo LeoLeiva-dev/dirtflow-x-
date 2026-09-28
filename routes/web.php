@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\BikeController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use Illuminate\Support\Facades\Route;
 
 Route::inertia('/', 'public/Home')->name('home');
 
@@ -16,15 +16,10 @@ Route::get('/bikes', [BikeController::class, 'index'])
 Route::get('/bikes/{slug}', [BikeController::class, 'show'])
     ->name('bikes.show');
 
-
 Route::get('/cart', [CartController::class, 'index'])
     ->name('cart.index');
 
 Route::post('/cart/{productId}', [CartController::class, 'add'])
     ->name('cart.add');
-
-
-
-
 
 require __DIR__.'/settings.php';
