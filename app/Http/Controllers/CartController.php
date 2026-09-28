@@ -64,12 +64,19 @@ class CartController extends Controller
             ->where('product_id', $product->id)
             ->first();
 
-        $currentQuantity = $item ? $item->cantidad : 0;
+        $currentQuantity = 0;
+
+        if ($item) {
+            $currentQuantity = (int) $item->getAttribute('cantidad');
+        }
+
         $newQuantity = $currentQuantity + $validated['cantidad'];
 
-        if ($newQuantity > $product->inventory->cantidad) {
+        $availableStock = (int) $product->inventory->getAttribute('cantidad');
+
+        if ($newQuantity > $availableStock) {
             return back()->withErrors([
-                'cantidad' => "Solo hay {$product->inventory->cantidad} unidades disponibles.",
+                'cantidad' => "Solo hay {$availableStock} unidades disponibles.",
             ]);
         }
 

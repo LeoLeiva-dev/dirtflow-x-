@@ -10,8 +10,4 @@ parameters:
         - database/
         - routes/
 
-    level: 7
-
-    ignoreErrors:
-        -
-            identifier: missingType.generics
+    level: 5

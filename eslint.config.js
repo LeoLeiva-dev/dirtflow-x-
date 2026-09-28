@@ -14,6 +14,7 @@ const controlStatements = [
     'try',
     'throw',
 ];
+
 const paddingAroundControl = [
     ...controlStatements.flatMap((stmt) => [
         { blankLine: 'always', prev: '*', next: stmt },
@@ -27,15 +28,6 @@ export default defineConfigWithVueTs(
     {
         plugins: {
             import: importPlugin,
-        },
-        settings: {
-            'import/resolver': {
-                typescript: {
-                    alwaysTryTypes: true,
-                    project: './tsconfig.json',
-                },
-                node: true,
-            },
         },
         rules: {
             'vue/multi-word-component-names': 'off',
