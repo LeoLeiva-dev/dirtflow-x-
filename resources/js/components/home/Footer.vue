@@ -36,14 +36,14 @@
                         </a>
 
                         <a
-                            href="#"
+                            href="/accesorios"
                             class="block transition hover:text-emerald-500"
                         >
                             Accesorios
                         </a>
 
                         <a
-                            href="#"
+                            href="/nosotros"
                             class="block transition hover:text-emerald-500"
                         >
                             Nosotros

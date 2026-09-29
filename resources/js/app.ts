@@ -11,12 +11,19 @@ createInertiaApp({
     title: (title) => (title ? `${title} - ${appName}` : appName),
     layout: (name) => {
         switch (true) {
-            case name.startsWith('public/'): //indica que todas las vistas que esten en public, se podran ver sin autenticacion
+            case name === 'Welcome':
+            case name.startsWith('public/'):
                 return null;
+
+            case name === 'Dashboard':
+                return null;
+
             case name.startsWith('auth/'):
                 return AuthLayout;
+
             case name.startsWith('settings/'):
                 return [AppLayout, SettingsLayout];
+
             default:
                 return AppLayout;
         }
