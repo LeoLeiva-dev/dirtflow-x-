@@ -67,5 +67,49 @@ class CategorySeeder extends Seeder
             'slug' => 'endurance',
             'descripcion' => 'Bicicletas de ruta orientadas a comodidad y largas distancias.',
         ]);
+
+        // Categoría principal
+        $accesorios = Category::create([
+            'nombre' => 'Accesorios',
+            'slug' => 'accesorios',
+            'descripcion' => 'Accesorios y equipamiento para complementar cada salida.',
+        ]);
+
+        // Subcategorías de accesorios
+        Category::create([
+            'parent_id' => $accesorios->id,
+            'nombre' => 'Cascos',
+            'slug' => 'cascos',
+            'descripcion' => 'Cascos para protección y seguridad durante cada recorrido.',
+        ]);
+
+        Category::create([
+            'parent_id' => $accesorios->id,
+            'nombre' => 'Protecciones',
+            'slug' => 'protecciones',
+            'descripcion' => 'Protecciones para mejorar la seguridad en terrenos exigentes.',
+        ]);
+
+        Category::create([
+            'parent_id' => $accesorios->id,
+            'nombre' => 'Guantes',
+            'slug' => 'guantes',
+            'descripcion' => 'Guantes para mejorar el agarre y la comodidad durante la conducción.',
+        ]);
+
+        Category::create([
+            'parent_id' => $accesorios->id,
+            'nombre' => 'Ropa',
+            'slug' => 'ropa',
+            'descripcion' => 'Ropa y equipamiento para acompañar cada recorrido.',
+        ]);
+
+        Category::create([
+            'parent_id' => $accesorios->id,
+            'nombre' => 'Componentes',
+            'slug' => 'componentes',
+            'descripcion' => 'Componentes y piezas para mejorar y mantener tu bicicleta.',
+        ]);
+
     }
 }

@@ -196,6 +196,120 @@ class ProductSeeder extends Seeder
                 'sku' => 'DF-RD-ED-005',
                 'descripcion' => 'Bicicleta de endurance ligera y preparada para largas rutas.',
             ],
+            // Accesorios - Cascos
+            [
+                'categoria' => 'cascos',
+                'nombre' => 'Fox Speedframe Pro',
+                'precio' => 85000,
+                'sku' => 'DF-ACC-CA-001',
+                'descripcion' => 'Casco de montaña ligero con ventilación y protección para trail y enduro.',
+            ],
+            [
+                'categoria' => 'cascos',
+                'nombre' => 'Troy Lee Designs A3',
+                'precio' => 105000,
+                'sku' => 'DF-ACC-CA-002',
+                'descripcion' => 'Casco premium diseñado para ofrecer protección y comodidad en terrenos técnicos.',
+            ],
+            [
+                'categoria' => 'cascos',
+                'nombre' => 'POC Kortal Race',
+                'precio' => 125000,
+                'sku' => 'DF-ACC-CA-003',
+                'descripcion' => 'Casco de alto rendimiento con cobertura extendida para recorridos exigentes.',
+            ],
+
+            // Accesorios - Protecciones
+            [
+                'categoria' => 'protecciones',
+                'nombre' => 'Fox Launch Pro Knee Guard',
+                'precio' => 65000,
+                'sku' => 'DF-ACC-PR-001',
+                'descripcion' => 'Protección de rodillas para trail, enduro y descensos técnicos.',
+            ],
+            [
+                'categoria' => 'protecciones',
+                'nombre' => 'Leatt AirFlex Chest Protector',
+                'precio' => 95000,
+                'sku' => 'DF-ACC-PR-002',
+                'descripcion' => 'Protección ligera para el torso con diseño flexible y ventilado.',
+            ],
+            [
+                'categoria' => 'protecciones',
+                'nombre' => 'Fox Baseframe Pro',
+                'precio' => 115000,
+                'sku' => 'DF-ACC-PR-003',
+                'descripcion' => 'Protección corporal avanzada para recorridos agresivos y descensos.',
+            ],
+
+            // Accesorios - Guantes
+            [
+                'categoria' => 'guantes',
+                'nombre' => 'Fox Ranger Gloves',
+                'precio' => 22000,
+                'sku' => 'DF-ACC-GU-001',
+                'descripcion' => 'Guantes ligeros con buen agarre y comodidad para recorridos de montaña.',
+            ],
+            [
+                'categoria' => 'guantes',
+                'nombre' => 'Troy Lee Designs Air Glove',
+                'precio' => 28000,
+                'sku' => 'DF-ACC-GU-002',
+                'descripcion' => 'Guantes ventilados diseñados para máximo control y comodidad.',
+            ],
+            [
+                'categoria' => 'guantes',
+                'nombre' => 'Giro DND Gloves',
+                'precio' => 20000,
+                'sku' => 'DF-ACC-GU-003',
+                'descripcion' => 'Guantes resistentes y cómodos para uso diario en montaña.',
+            ],
+
+            // Accesorios - Ropa
+            [
+                'categoria' => 'ropa',
+                'nombre' => 'Fox Flexair Jersey',
+                'precio' => 48000,
+                'sku' => 'DF-ACC-RO-001',
+                'descripcion' => 'Jersey ligero y transpirable diseñado para trail y enduro.',
+            ],
+            [
+                'categoria' => 'ropa',
+                'nombre' => 'Troy Lee Designs Sprint Jersey',
+                'precio' => 55000,
+                'sku' => 'DF-ACC-RO-002',
+                'descripcion' => 'Jersey de alto rendimiento para conducción agresiva y competición.',
+            ],
+            [
+                'categoria' => 'ropa',
+                'nombre' => 'Fox Ranger Shorts',
+                'precio' => 52000,
+                'sku' => 'DF-ACC-RO-003',
+                'descripcion' => 'Shorts resistentes y cómodos para recorridos de montaña.',
+            ],
+
+            // Accesorios - Componentes
+            [
+                'categoria' => 'componentes',
+                'nombre' => 'Race Face Chester Pedals',
+                'precio' => 42000,
+                'sku' => 'DF-ACC-CO-001',
+                'descripcion' => 'Pedales planos resistentes con excelente agarre para MTB.',
+            ],
+            [
+                'categoria' => 'componentes',
+                'nombre' => 'Maxxis Minion DHF',
+                'precio' => 38000,
+                'sku' => 'DF-ACC-CO-002',
+                'descripcion' => 'Llanta de MTB diseñada para ofrecer agarre y control en terrenos exigentes.',
+            ],
+            [
+                'categoria' => 'componentes',
+                'nombre' => 'SRAM GX Eagle Chain',
+                'precio' => 32000,
+                'sku' => 'DF-ACC-CO-003',
+                'descripcion' => 'Cadena de transmisión para sistemas MTB de 12 velocidades.',
+            ],
         ];
 
         foreach ($productos as $datos) {
@@ -216,6 +330,7 @@ class ProductSeeder extends Seeder
                 'cantidad' => 5,
                 'stock_minimo' => 2,
             ]);
+
         }
     }
 }

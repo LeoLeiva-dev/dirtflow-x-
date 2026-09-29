@@ -13,6 +13,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::get('/bikes', [BikeController::class, 'index'])
     ->name('bikes.index');
 
+Route::get('/accesorios', [BikeController::class, 'accessories'])
+    ->name('accessories.index');
+
 Route::get('/bikes/{slug}', [BikeController::class, 'show'])
     ->name('bikes.show');
 
