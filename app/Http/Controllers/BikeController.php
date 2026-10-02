@@ -74,4 +74,16 @@ class BikeController extends Controller
             'product' => $product,
         ]);
     }
+
+    public function accessory(string $slug): Response
+    {
+        $product = Product::with(['category', 'inventory'])
+            ->where('slug', $slug)
+            ->where('activo', true)
+            ->firstOrFail();
+
+        return Inertia::render('public/Accessories/Show', [
+            'product' => $product,
+        ]);
+    }
 }

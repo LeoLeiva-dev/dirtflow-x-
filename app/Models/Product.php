@@ -17,11 +17,13 @@ class Product extends Model
         'sku',
         'imagen',
         'activo',
+        'destacado',
     ];
 
     protected $casts = [
         'precio' => 'decimal:2',
         'activo' => 'boolean',
+        'destacado' => 'boolean',
     ];
 
     public function category(): BelongsTo

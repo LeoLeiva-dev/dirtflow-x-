@@ -312,17 +312,27 @@ class ProductSeeder extends Seeder
             ],
         ];
 
+        $productosDestacados = [
+            'santa-cruz-tallboy',
+            'santa-cruz-megatower',
+            'santa-cruz-v10',
+        ];
+
         foreach ($productos as $datos) {
+
             $categoria = Category::where('slug', $datos['categoria'])->firstOrFail();
+
+            $slug = str()->slug($datos['nombre']);
 
             $producto = Product::create([
                 'category_id' => $categoria->id,
                 'nombre' => $datos['nombre'],
-                'slug' => str()->slug($datos['nombre']),
+                'slug' => $slug,
                 'descripcion' => $datos['descripcion'],
                 'precio' => $datos['precio'],
                 'sku' => $datos['sku'],
                 'activo' => true,
+                'destacado' => in_array($slug, $productosDestacados, true),
             ]);
 
             Inventory::create([

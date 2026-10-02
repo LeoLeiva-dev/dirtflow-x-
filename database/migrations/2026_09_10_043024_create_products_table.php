@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('sku')->unique();
             $table->string('imagen')->nullable();
             $table->boolean('activo')->default(true);
+            $table->boolean('destacado')->default(false);
 
             $table->timestamps();
         });

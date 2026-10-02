@@ -18,6 +18,9 @@ createInertiaApp({
             case name === 'Dashboard':
                 return null;
 
+            case name.startsWith('profile/'):
+                return null;
+
             case name.startsWith('auth/'):
                 return AuthLayout;
 

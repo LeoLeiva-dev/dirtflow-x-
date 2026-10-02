@@ -75,7 +75,7 @@ const scrollToAcquire = () => {
     <Head :title="product.nombre" />
     <navbar />
 
-    <div class="min-h-screen bg-zinc-950 text-white">
+    <div class="min-h-screen bg-zinc-950 pt-24 text-white">
         <!-- Hero -->
         <section class="relative min-h-screen overflow-hidden">
             <!-- Background glow -->
